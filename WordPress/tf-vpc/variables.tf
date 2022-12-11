@@ -17,8 +17,5 @@ variable "public_subnet_az" {
   type = string
 
 }
-variable "private_subnet_az" {
-  type = string
 
-}
 

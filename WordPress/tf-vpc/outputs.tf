@@ -10,6 +10,3 @@ output "privatesb" {
 output "public_az" {
   value = aws_subnet.sn-pb.availability_zone
 }
-output "private_az" {
-  value = aws_subnet.sn-private.availability_zone
-}

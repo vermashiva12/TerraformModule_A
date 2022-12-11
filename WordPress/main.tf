@@ -21,9 +21,7 @@ output "privatesb" {
 output "azPublic" {
   value = module.networking.public_az
 }
-output "azPrivate" {
-  value = module.networking.private_az
-}
+
 module "sgGroup" {
   source = "./tf-sg"
   vpc_id = module.networking.vpcIDMain
@@ -45,14 +43,11 @@ module "rds" {
 }
 module "ec2" {
   source            = "./tf-ec2"
-  amiID             = "ami-0b0dcb5067f052a63"
-  instanceType      = "t2.micro"
-  sgoutID           = module.sgGroup.sgID_web
-  publicsubnet_a    = module.networking.publicsb
-  privatesubnet_b   = module.networking.privatesb
-  public_subnet_az  = module.networking.public_az
-  private_subnet_az = module.networking.private_az
-  keyName           = "lab4"
+  amiIDnamiIdName   = "ami-0b0dcb5067f052a63"
+  machineType       = "t2.micro"
+  sgID              = module.sgGroup.sgID_web
+  publicSubnet      = module.networking.publicsb
+  keykeyPair        = "lab4"
 
 
 }
