@@ -41,6 +41,13 @@ resource "aws_subnet" "sn-pb" {
   }
 
 }
+resource "aws_db_subnet_group" "rdsGroup" {
+  subnet_ids = [ aws_subnet.sn-pb.*.id ]
+  tags = {
+    "Name" = "DB Subnet Group"
+  }
+  
+}
 resource "aws_subnet" "sn-private" {
   vpc_id            = aws_vpc.VPC-lab4.id
   cidr_block        = var.private_subnet_cidr

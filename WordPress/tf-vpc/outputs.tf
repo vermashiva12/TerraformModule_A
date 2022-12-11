@@ -10,3 +10,7 @@ output "privatesb" {
 output "public_az" {
   value = aws_subnet.sn-pb.availability_zone
 }
+output "publicRDS" {
+  value = aws_db_subnet_group.rdsGroup.name
+  
+}

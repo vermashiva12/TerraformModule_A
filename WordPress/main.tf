@@ -21,6 +21,10 @@ output "privatesb" {
 output "azPublic" {
   value = module.networking.public_az
 }
+output "rds" {
+  value = module.networking.publicRDS
+  
+}
 
 module "sgGroup" {
   source = "./tf-sg"
@@ -38,6 +42,7 @@ module "rds" {
     dbname = "dbfinal"
     username = "admin"
     userPass = "Admin123"
+    publicSubnet = module.networking.publicRDS
     dbGroup = module.sgGroup.sgID_dbGroup
   
 }
@@ -47,6 +52,7 @@ module "ec2" {
   machineType       = "t2.micro"
   sgID              = module.sgGroup.sgID_web
   publicSubnet      = module.networking.publicsb
+  privateSubnet     = module.networking.privatesb
   keykeyPair        = "lab4"
 
 

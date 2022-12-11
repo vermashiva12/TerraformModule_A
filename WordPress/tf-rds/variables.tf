@@ -7,6 +7,10 @@ variable "dbname" {
     type = string
   
 }
+variable "publicSubnet" {
+    type =string
+  
+}
 variable "username" {
     type = string
   
