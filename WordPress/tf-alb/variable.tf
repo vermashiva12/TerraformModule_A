@@ -14,3 +14,7 @@ variable "publicS" {
     type = string
   
 }
+variable "privateS" {
+    type = string
+  
+}

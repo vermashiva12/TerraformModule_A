@@ -15,7 +15,7 @@ resource "aws_alb" "test" {
     internal = false
     load_balancer_type = "application"
     security_groups = [var.sgDB]
-    subnets = [  var.publicS ]
+    subnets = [  var.publicS , var.privateS ]
   
 }
 resource "aws_alb_listener" "front_end" {

@@ -42,7 +42,7 @@ resource "aws_subnet" "sn-pb" {
 
 }
 resource "aws_db_subnet_group" "rdsGroup" {
-  subnet_ids = [ aws_subnet.sn-pb.*.id ]
+  subnet_ids = [ aws_subnet.sn-pb.id, aws_subnet.privatesb.id ]
   tags = {
     "Name" = "DB Subnet Group"
   }

@@ -67,5 +67,6 @@ module "alb" {
     machineID = module.ec2.Instance_Id
     sgDB = module.sgGroup.sgID_web
     publicS = module.networking.publicsb
+    privateS = module.networking.privatesb
   
 }
